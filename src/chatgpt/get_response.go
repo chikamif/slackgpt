@@ -3,14 +3,10 @@ package chatgpt
 import (
 	"context"
 	"errors"
-	openai "github.com/sashabaranov/go-openai"
 	"strings"
-)
 
-// GPTClient implements CreateCompletion from gogpt.Client for testing and future methods
-type GPTClient interface {
-	CreateCompletion(ctx context.Context, req openai.CompletionRequest) (response openai.CompletionResponse, err error)
-}
+	openai "github.com/sashabaranov/go-openai"
+)
 
 // ErrorEmptyPrompt implements an Error raised by passing an empty prompt
 var ErrorEmptyPrompt error = errors.New("Error empty prompt")
@@ -32,20 +28,29 @@ var ErrorEmptyPrompt error = errors.New("Error empty prompt")
 // Returns:
 // - a string containing the generated response from the GPT-3 API
 // - an error, if any
-func GetStringResponse(client GPTClient, ctx context.Context, chat []string) (string, error) {
+func GetStringResponse(client *openai.Client, ctx context.Context, chat []string) (string, error) {
 	if len(chat) == 0 {
 		return "", ErrorEmptyPrompt
 	}
 
-	req := openai.CompletionRequest{
-		Model:       openai.GPT3TextDavinci003,
-		Prompt:      strings.Join(chat, " "),
-		MaxTokens:   2000,
-		Temperature: 0,
+	req := openai.ChatCompletionRequest{
+		Model: openai.GPT4Turbo1106,
+		Messages: []openai.ChatCompletionMessage{
+			{
+				Role:    openai.ChatMessageRoleSystem,
+				Content: "You are a helpful chat bot assistant. Please answer shortly, and in Japanese.",
+			},
+			{
+				Role:    openai.ChatMessageRoleUser,
+				Content: strings.Join(chat, " "),
+			},
+		},
+		MaxTokens:   1000,
+		Temperature: 0.5,
 	}
-	resp, err := client.CreateCompletion(ctx, req)
+	resp, err := client.CreateChatCompletion(ctx, req)
 	if err != nil {
 		return "", err
 	}
-	return strings.TrimSpace(resp.Choices[0].Text), nil
+	return strings.TrimSpace(resp.Choices[0].Message.Content), nil
 }

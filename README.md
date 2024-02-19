@@ -3,13 +3,13 @@
    <a href='#GoVersion'>
       <img alt="GitHub go.mod Go version" src="https://img.shields.io/github/go-mod/go-version/drkennetz/slackgpt">
    </a>
-    <a href="https://github.com/drkennetz/slackgpt">
+    <a href="https://github.com/chikamif/slackgpt">
         <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/drkennetz/slackgpt/ci.yml">
     </a>
     <a href="https://codecov.io/github/drkennetz/slackgpt" >
         <img src="https://codecov.io/github/drkennetz/slackgpt/branch/main/graph/badge.svg?token=8IHKB8J1AN"/>
     </a>
-    <a href="https://github.com/drkennetz/slackgpt/issues">
+    <a href="https://github.com/chikamif/slackgpt/issues">
         <img src="https://img.shields.io/github/issues/drkennetz/slackgpt" alt="Issues">
    </a>
 </p>
@@ -34,7 +34,7 @@ Build the binary, add tokens to config, and run!
 ### Build
 ```bash
 # requires >= go 1.18 to build from source
-git clone https://github.com/drkennetz/slackgpt.git
+git clone https://github.com/chikamif/slackgpt.git
 cd slackgpt && go build -o ./bin/slackgpt
 ```
 
@@ -91,8 +91,8 @@ socketmode: 2023/02/01 14:53:19 socket_mode_managed_conn.go:258: Starting Socket
 </details>
 
 ## Slack Commands
-| **Command** | **Description** | **Usage Example** |
-|---|---|---|
+| **Command** | **Description**                                      | **Usage Example**       |
+| ----------- | ---------------------------------------------------- | ----------------------- |
 | clear convo | clear conversation of thread where command is called | '@slackgpt clear convo' |
 
 ## Contributing

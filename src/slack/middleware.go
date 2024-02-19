@@ -2,7 +2,7 @@ package slackhandler
 
 import (
 	"context"
-	"github.com/drkennetz/slackgpt/src/chatgpt"
+	"github.com/chikamif/slackgpt/src/chatgpt"
 	"github.com/sashabaranov/go-openai"
 	"github.com/slack-go/slack"
 	"github.com/slack-go/slack/slackevents"

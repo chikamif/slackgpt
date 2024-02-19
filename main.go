@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 	"github.com/alexflint/go-arg"
-	configs "github.com/drkennetz/slackgpt/config"
-	slackgpt "github.com/drkennetz/slackgpt/src/slack"
+	configs "github.com/chikamif/slackgpt/config"
+	slackgpt "github.com/chikamif/slackgpt/src/slack"
 	"github.com/sashabaranov/go-openai"
 	"github.com/slack-go/slack"
 	"github.com/slack-go/slack/socketmode"
@@ -35,7 +35,7 @@ func (args) Description() string {
 }
 
 func (args) Epilogue() string {
-	return "for more information, visit https://github.com/drkennetz/slackgpt"
+	return "for more information, visit https://github.com/chikamif/slackgpt"
 }
 
 func main() {

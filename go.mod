@@ -1,11 +1,11 @@
-module github.com/drkennetz/slackgpt
+module github.com/chikamif/slackgpt
 
-go 1.19
+go 1.21
 
 require (
 	github.com/alexflint/go-arg v1.4.3
 	github.com/magiconair/properties v1.8.7
-	github.com/sashabaranov/go-openai v1.9.0
+	github.com/sashabaranov/go-openai v1.19.4
 	github.com/slack-go/slack v0.12.1
 	github.com/spf13/viper v1.15.0
 	github.com/stretchr/testify v1.8.2
